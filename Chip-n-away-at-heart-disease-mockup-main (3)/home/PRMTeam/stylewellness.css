@@ -158,6 +158,15 @@ html {
 }
 
 
+
+/* section includes all of the changes made to support the wellness.html page */
+
+
+
+/* change font to rem units, remove large margin numbers opt for vh, */
+
+
+
 .wellnessbanner{
     height: 550px;
     width: 100%;
@@ -168,11 +177,13 @@ html {
     
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap; /* kind of weird but it keeps the columns where they need to be on portrait monitors and */
     justify-content: center;
     align-items: flex-end;
 
     padding: 30px;
-    gap: 5%;
+    gap: 5rem;
+    margin-bottom: 50px;
 }
 
 .columncontent {
@@ -190,7 +201,7 @@ html {
     width: 25%;
     aspect-ratio: 4/5 ;
     background-color: var(--color-apple-nav);
-    margin-bottom: -300px;
+
     max-width: 400px;
     border-radius: 20px;
 
@@ -201,24 +212,30 @@ html {
     overflow: hidden;
     color: white;
     z-index:10;
+    
+    margin-top: 20vh;
+
+
+
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
 
 }
 .column-container:hover{
     transform: translateY(-10px);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
-    /* no idea how this works i had to look it up :/ */
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4); /* 0 - Horizontal offset, 30px - vertical offset, 60px -blur radius, rgba - black color at 0.4 transparencey. */
 }
 /* overrides the h3 that was already set above for some reason */
 .column-container h3 {
-    color:white;
+    color:inherit;
     font-weight: bold ;
-    font-size: larger;
+    font-size: 1.5rem;
 }
 
 .column-container p {
-     color:white;
-
-
+     color:inherit;
+    font-size: 1.2rem;
 }
 .column-banner {
     width: 100%;
@@ -238,6 +255,8 @@ html {
     font-weight: bold;
     font-size: normal;
     align-self: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
 }
 
 .column-button:hover{
@@ -250,7 +269,7 @@ html {
 .maincontent { 
     position: relative;
     width: 80%;
-    height: 1500px;
+    height: 80vh;
     background-color: white;
 
     padding: 50px 50px 100px 50px; /* top right bottom left  if yall wanna adjust*/
@@ -268,8 +287,13 @@ html {
 
 }
 
+
+.maincontenttext {
+    color: black;
+}
+
+
 .maincontenttext h1 {
-    color : black;
     font-size: medium;
     margin-bottom: 20px;
 }
@@ -278,7 +302,6 @@ html {
 .maincontenttext p {
     max-width: 800px;
     line-height: normal;
-    color: black;
 }
 
 .burgermenu {
