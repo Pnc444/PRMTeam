@@ -167,7 +167,7 @@ html {
 /* change font to rem units, remove large margin numbers opt for vh, */
 
 
-
+/* Top banner of the main page ( The big mountain image thing) */
 .wellnessbanner{
     height: 550px;
     width: 100%;
@@ -184,8 +184,13 @@ html {
 
     padding: 30px;
     gap: 5rem;
-    margin-bottom: 50px;
+    margin-bottom: 25rem;
 }
+
+
+
+
+/* Under this point is all of the css code for the columns */
 
 .columncontent {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -197,6 +202,7 @@ html {
     padding: 20px;
     flex-direction: column;
 }
+
 
 .column-container {
     width: 25%;
@@ -217,17 +223,13 @@ html {
     margin-top: 20vh;
 
 
-
-
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-
 }
 .column-container:hover{
     transform: translateY(-10px);
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4); /* 0 - Horizontal offset, 30px - vertical offset, 60px -blur radius, rgba - black color at 0.4 transparencey. */
 }
-/* overrides the h3 that was already set above for some reason */
+/* overrides the h3 that was already set above for some reason, and p */
 .column-container h3 {
     color:inherit;
     font-weight: bold ;
@@ -238,13 +240,15 @@ html {
      color:inherit;
     font-size: 1.2rem;
 }
+/* Banner image for the columns */
 .column-banner {
     width: 100%;
-    height: auto;
-    max-height: 150px;
+    height: 120px;
     object-fit: cover;
+    flex-shrink: 0;
 }
 
+/* the buttons that will jump you through the page */
 .column-button {
 
     margin-top: auto;
@@ -259,76 +263,85 @@ html {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 
 }
-
+    /* animation for the button to look interactive instead of just still */
 .column-button:hover{
     background-color: #0c0202;
     transform: scale(1.05);
 }
-
-
-
-.maincontent { 
-    position: relative;
-    width: 80%;
-    max-width: 1500px;
-    height: 80vh;
-    background-color: white;
-
-    padding: 50px 50px 100px 50px; /* top right bottom left  if yall wanna adjust*/
-    margin-top: 400px;
-    margin-bottom: 100px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 10px;
-    z-index:1;
+/* Main Content Sections - Shared Base Styles */
+.maincontent, .maincontent2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: stretch;
+    min-height: 75vh;
+    padding: 8rem;
 
 }
+/* Main content parts that are specific to just them, its like this because i want to use a Z-pattern though the webpage */
+.maincontent {
+    background-color: #9ab36c;
+}
 
+.maincontent2 {
+    background-color: #d9f99d;
+}
 
-.maincontenttext {
+/* main the text boxes for the main content sections, sets the basics up here and below sets the specific changes based on where they are at on the screen */
+.maincontent-box {
     color: black;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    padding-right: 350px;
+    background-color: #ffffff;
+    font-family: var(--font-primary);
+
+
+    max-width: 35rem;
+    width: 75%;
+    border-radius: 5%;
+    padding: 25px 25px 25px 25px;
 }
 
 
-.maincontenttext h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    font-family: inherit;
+/* sets the font sizes and margins for the text in the maincontent text boxes */
+.maincontent-box h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    font-family: var(--font-heading);
 }
 
 
-.maincontenttext p {
+.maincontent-box p {
     max-width: 800px;
-    line-height: 25px;
-    font-family: inherit;
-    margin-bottom: 50px;
-    margin-top: 25px
+    line-height: 1.6;
+    margin: 1.5rem 0 3rem 0;
 }
 
-.burgermenu {
-    position: absolute; /* apparently makes sure to hold its place? */
-    width: 300px;
-    height: 400px;
-    top: 50px;
-    right: 0px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    border-left: 3px solid  black;
+.z-right{
+    display: grid;
+    grid-area: right;
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem;
+    min-height: 32rem;
 }
 
-.burgermenucontenttitle {
-    color: black;
-    padding: 10px 10px 10px 10px;
-    font-weight: 600;
+.pageimage,
+.page-slides{
+    background-color:#ffffff;
+    border-radius: 1rem;
+    overflow: hidden;
 }
 
-.burgermenucontenttext {
-    color: black;
-    margin-left: 25px;
+.z-section {
+    grid-template-areas: "text right"
 }
+
+
+
+
+
+
+
+
+
+
+
+
